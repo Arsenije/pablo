@@ -1,0 +1,9 @@
+name = "links-worker"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+# Environment variables — set secrets via dashboard or `wrangler secret put`
+# Do NOT put actual tokens here; use `wrangler secret put TOKEN_ARSENIJE` etc.
+[vars]
+GITHUB_OWNER = "arsenije"
+GITHUB_REPO  = "pablo"
