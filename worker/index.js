@@ -102,7 +102,15 @@ async function fetchOG(url) {
       signal: AbortSignal.timeout(5000),
     });
     if (!res.ok) return {};
-    const html = await res.text();
+
+    // Detect charset from Content-Type header, default to utf-8
+    const ct = res.headers.get('content-type') || '';
+    const charsetMatch = ct.match(/charset=([^\s;]+)/i);
+    const charset = charsetMatch ? charsetMatch[1] : 'utf-8';
+
+    const buf = await res.arrayBuffer();
+    const html = new TextDecoder(charset).decode(buf);
+
     return {
       title:       og(html, 'og:title')       || titleTag(html),
       description: og(html, 'og:description') || '',
