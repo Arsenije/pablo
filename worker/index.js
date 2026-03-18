@@ -6,7 +6,7 @@
  *   GITHUB_OWNER   — your GitHub username
  *   GITHUB_REPO    — repo name (e.g. "links")
  *   TOKEN_ARSENIJE — secret share token for arsenije  (e.g. a random UUID)
- *   TOKEN_MARKO    — secret share token for marko
+ *   TOKEN_MIKA     — secret share token for mika
  *
  * POST /
  * Body: { "url": "https://...", "token": "<your secret token>" }

@@ -7,7 +7,7 @@
 
 ## Calm Technology — Principles and Patterns
 - url: https://calmtech.com
-- author: marko
+- author: mika
 - date: 2026-03-16T18:30:00Z
 - image:
 - description: Eight principles for designing technology that works with human attention, not against it.
