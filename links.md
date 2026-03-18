@@ -1,3 +1,10 @@
+## Mackintosh Official | Hand-made Luxury Raincoats &amp; Jackets
+- url: https://www.mackintosh.com/en-eu
+- author: arsenije
+- date: 2026-03-18T11:56:01.902Z
+- image: 
+- description: Since 1824, Mackintosh have been at the forefront of coat making, crafting by hand, a collection of raincoats, wool coats, weatherproof jackets &amp; outerwear.
+
 ## Reddit - The heart of the internet
 - url: https://www.reddit.com/r/askspain/comments/1rwxxbk/scent_on_elderly_people/
 - author: arsenije
@@ -10,7 +17,7 @@
 - author: arsenije
 - date: 2026-03-17T20:41:19.351Z
 - image: https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg
-- description: The official video for âNever Gonna Give You Upâ by Rick Astley. Never: The Autobiography ð OUT NOW! Follow this link to get your copy and listen to Rickâs ...
+- description: The official video for Ã¢ÂÂNever Gonna Give You UpÃ¢ÂÂ by Rick Astley. Never: The Autobiography Ã°ÂÂÂ OUT NOW! Follow this link to get your copy and listen to RickÃ¢ÂÂs ...
 
 ## The Website Obesity Crisis
 - url: https://idlewords.com/talks/website_obesity.htm
@@ -19,7 +26,7 @@
 - image:
 - description: Why modern websites have become bloated and slow, and what we can do about it.
 
-## Calm Technology Ã¢ÂÂ Principles and Patterns
+## Calm Technology ÃÂ¢ÃÂÃÂ Principles and Patterns
 - url: https://calmtech.com
 - author: mika
 - date: 2026-03-16T18:30:00Z
