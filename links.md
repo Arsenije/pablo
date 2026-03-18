@@ -1,3 +1,10 @@
+## Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)
+- url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+- author: arsenije
+- date: 2026-03-18T18:17:08.009Z
+- image: https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg
+- description: The official video for “Never Gonna Give You Up” by Rick Astley. Never: The Autobiography 📚 OUT NOW! Follow this link to get your copy and listen to Rick’s ...
+
 ## Mackintosh Official | Hand-made Luxury Raincoats &amp; Jackets
 - url: https://www.mackintosh.com/en-eu
 - author: arsenije
@@ -17,7 +24,7 @@
 - author: arsenije
 - date: 2026-03-17T20:41:19.351Z
 - image: https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg
-- description: The official video for Ã¢ÂÂNever Gonna Give You UpÃ¢ÂÂ by Rick Astley. Never: The Autobiography Ã°ÂÂÂ OUT NOW! Follow this link to get your copy and listen to RickÃ¢ÂÂs ...
+- description: The official video for ÃÂ¢ÃÂÃÂNever Gonna Give You UpÃÂ¢ÃÂÃÂ by Rick Astley. Never: The Autobiography ÃÂ°ÃÂÃÂÃÂ OUT NOW! Follow this link to get your copy and listen to RickÃÂ¢ÃÂÃÂs ...
 
 ## The Website Obesity Crisis
 - url: https://idlewords.com/talks/website_obesity.htm
@@ -26,7 +33,7 @@
 - image:
 - description: Why modern websites have become bloated and slow, and what we can do about it.
 
-## Calm Technology ÃÂ¢ÃÂÃÂ Principles and Patterns
+## Calm Technology ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Principles and Patterns
 - url: https://calmtech.com
 - author: mika
 - date: 2026-03-16T18:30:00Z
