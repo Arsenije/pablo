@@ -20,12 +20,18 @@ export default {
     // CORS — allow requests from the GitHub Pages domain and localhost
     const corsHeaders = {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     };
 
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders });
+    }
+
+    // RSS feed endpoint
+    const reqUrl = new URL(request.url);
+    if (request.method === 'GET' && reqUrl.pathname === '/feed') {
+      return handleFeed(env, corsHeaders);
     }
 
     if (request.method !== 'POST') {
@@ -199,6 +205,94 @@ async function prependToFile(entry, env) {
     const err = await putRes.text();
     throw new Error(`GitHub PUT ${putRes.status}: ${err}`);
   }
+}
+
+// ─── RSS feed ─────────────────────────────────────────────────────────────────
+
+async function handleFeed(env, corsHeaders) {
+  const { GITHUB_TOKEN, GITHUB_OWNER, GITHUB_REPO } = env;
+  const apiBase = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${LINKS_FILE}`;
+  const headers = {
+    'Authorization': `Bearer ${GITHUB_TOKEN}`,
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+    'User-Agent': 'links-app/1.0',
+  };
+
+  let markdown = '';
+  try {
+    const res = await fetch(apiBase, { headers });
+    if (!res.ok) throw new Error(`GitHub GET ${res.status}`);
+    const data = await res.json();
+    markdown = atob(data.content.replace(/\n/g, ''));
+  } catch (e) {
+    return new Response(`Feed unavailable: ${e.message}`, { status: 500 });
+  }
+
+  const entries = parseMarkdown(markdown).slice(0, 50);
+  const siteUrl = `https://${GITHUB_OWNER}.github.io/${GITHUB_REPO}/`;
+  const feedUrl = `https://links-worker.${GITHUB_OWNER}-catic-cloudflare.workers.dev/feed`;
+
+  const items = entries.map(e => {
+    const pubDate = e.date ? new Date(e.date).toUTCString() : '';
+    const enclosure = e.image
+      ? `<enclosure url="${xmlEsc(e.image)}" type="image/jpeg" length="0"/>`
+      : '';
+    return `
+    <item>
+      <title>${xmlEsc(e.title)}</title>
+      <link>${xmlEsc(e.url)}</link>
+      <guid isPermaLink="true">${xmlEsc(e.url)}</guid>
+      ${e.description ? `<description>${xmlEsc(e.description)}</description>` : ''}
+      ${e.author ? `<author>${xmlEsc(e.author)}</author>` : ''}
+      ${pubDate ? `<pubDate>${pubDate}</pubDate>` : ''}
+      ${enclosure}
+    </item>`;
+  }).join('');
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pablo links</title>
+    <link>${xmlEsc(siteUrl)}</link>
+    <description>links shared by arsenije and mika</description>
+    <language>en</language>
+    <atom:link href="${xmlEsc(feedUrl)}" rel="self" type="application/rss+xml"/>
+    ${items}
+  </channel>
+</rss>`;
+
+  return new Response(xml, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/rss+xml; charset=utf-8',
+      ...corsHeaders,
+    },
+  });
+}
+
+function parseMarkdown(text) {
+  const entries = [];
+  const blocks  = text.split(/^## /m).filter(b => b.trim());
+  for (const block of blocks) {
+    const lines = block.split('\n');
+    const entry = { title: lines[0].trim() };
+    for (const line of lines.slice(1)) {
+      const m = line.match(/^- (\w+): (.*)$/);
+      if (m) entry[m[1]] = m[2].trim();
+    }
+    if (entry.url) entries.push(entry);
+  }
+  return entries;
+}
+
+function xmlEsc(s) {
+  return String(s || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────

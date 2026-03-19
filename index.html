@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>links</title>
+  <link rel="alternate" type="application/rss+xml" title="pablo links" href="https://links-worker.arsenije-catic-cloudflare.workers.dev/feed">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -41,6 +42,20 @@
       letter-spacing: 0.04em;
       text-transform: lowercase;
     }
+
+    #search {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      background: transparent;
+      font-size: 0.875rem;
+      color: var(--text);
+      padding: 0.5rem 0;
+      outline: none;
+      margin-top: 0.75rem;
+    }
+
+    #search::placeholder { color: var(--muted); }
 
     main {
       max-width: 680px;
@@ -142,6 +157,13 @@
       font-size: 0.75rem;
     }
 
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+
     #status { color: var(--muted); }
 
     .state-empty, .state-error {
@@ -159,6 +181,7 @@
 
 <header>
   <h1>links</h1>
+  <input id="search" type="search" placeholder="search" autocomplete="off" spellcheck="false">
 </header>
 
 <main id="feed">
@@ -171,36 +194,50 @@
 
 <script>
   const LINKS_FILE = 'links.md';
+  const RSS_URL    = 'https://links-worker.arsenije-catic-cloudflare.workers.dev/feed';
+
+  let allEntries = [];
 
   async function load() {
-    const feed = document.getElementById('feed');
+    const feed   = document.getElementById('feed');
     const status = document.getElementById('status');
 
     try {
       const res = await fetch(LINKS_FILE + '?t=' + Date.now());
       if (!res.ok) throw new Error(res.status);
       const text = await res.text();
-      const entries = parse(text);
-
-      if (entries.length === 0) {
-        feed.innerHTML = '<p class="state-empty">No links yet.</p>';
-        return;
-      }
-
-      feed.innerHTML = entries.map(renderCard).join('');
-
-      const count = entries.length;
-      status.textContent = count + ' link' + (count === 1 ? '' : 's');
+      allEntries = parse(text);
+      render(allEntries);
     } catch (e) {
       feed.innerHTML = '<p class="state-error">Could not load links.md — make sure it exists in the same folder.</p>';
       console.error(e);
     }
   }
 
+  function render(entries) {
+    const feed   = document.getElementById('feed');
+    const status = document.getElementById('status');
+    const query  = document.getElementById('search').value.trim();
+    const total  = allEntries.length;
+
+    if (entries.length === 0) {
+      feed.innerHTML = query
+        ? '<p class="state-empty">No results.</p>'
+        : '<p class="state-empty">No links yet.</p>';
+    } else {
+      feed.innerHTML = entries.map(renderCard).join('');
+    }
+
+    const countLabel = query
+      ? `${entries.length} of ${total} link${total === 1 ? '' : 's'}`
+      : `${total} link${total === 1 ? '' : 's'}`;
+
+    status.innerHTML = `${countLabel} · <a href="${RSS_URL}">rss</a>`;
+  }
+
   function parse(text) {
     const entries = [];
-    // Split on ## headings
-    const blocks = text.split(/^## /m).filter(b => b.trim());
+    const blocks  = text.split(/^## /m).filter(b => b.trim());
 
     for (const block of blocks) {
       const lines = block.split('\n');
@@ -216,6 +253,22 @@
     }
 
     return entries;
+  }
+
+  function filterEntries(query) {
+    if (!query) return allEntries;
+    const q = query.toLowerCase();
+    return allEntries.filter(e => {
+      const domain = (() => {
+        try { return new URL(e.url).hostname.replace(/^www\./, ''); } catch { return ''; }
+      })();
+      return (
+        (e.title       && e.title.toLowerCase().includes(q))       ||
+        (e.description && e.description.toLowerCase().includes(q)) ||
+        (e.author      && e.author.toLowerCase().includes(q))      ||
+        domain.includes(q)
+      );
+    });
   }
 
   function renderCard(e) {
@@ -257,6 +310,18 @@
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
   }
+
+  // Search
+  document.getElementById('search').addEventListener('input', function () {
+    render(filterEntries(this.value.trim()));
+  });
+
+  document.getElementById('search').addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      this.value = '';
+      render(allEntries);
+    }
+  });
 
   load();
 </script>
