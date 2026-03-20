@@ -1,3 +1,10 @@
+## Reddit - The heart of the internet
+- url: https://www.reddit.com/r/BeAmazed/comments/1rymsih/design_that_puts_people_animals_and_nature_first/
+- author: arsenije
+- date: 2026-03-20T22:29:19.698Z
+- image: 
+- description: 
+
 ## Computers Are Bad
 - url: https://computer.rip
 - author: arsenije
@@ -61,7 +68,7 @@
 - image:
 - description: Why modern websites have become bloated and slow, and what we can do about it.
 
-## Calm Technology — Principles and Patterns
+## Calm Technology â Principles and Patterns
 - url: https://calmtech.com
 - author: mika
 - date: 2026-03-16T18:30:00Z
