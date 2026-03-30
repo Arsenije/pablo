@@ -1,3 +1,10 @@
+## When URLs go IRL: AKA The only way I&#x27;m letting my kid near YouTube - Guy Dupont
+- url: https://guydupont.leaflet.pub/3mfimqfm3a22x
+- author: arsenije
+- date: 2026-03-30T16:19:00.209Z
+- image: https://leaflet.pub/lish/did%253Aplc%253Amqbsw6bacyz4vjttjcsik5tc/3mfhu4qczbc27/3mfimqfm3a22x/opengraph-image?e2bb7203df6d3028
+- description: I built a system that allows my 3-year-old to select videos from a printed binder using a cheap QR code scanner. No remote, no distracting thumbnails, no YouTube app at all! Here&#x27;s what I did.
+
 ## Reddit - The heart of the internet
 - url: https://www.reddit.com/r/BeAmazed/comments/1rymsih/design_that_puts_people_animals_and_nature_first/
 - author: arsenije
@@ -68,7 +75,7 @@
 - image:
 - description: Why modern websites have become bloated and slow, and what we can do about it.
 
-## Calm Technology â Principles and Patterns
+## Calm Technology Ã¢ÂÂ Principles and Patterns
 - url: https://calmtech.com
 - author: mika
 - date: 2026-03-16T18:30:00Z
