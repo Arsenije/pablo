@@ -1,3 +1,10 @@
+## TikTok - Make Your Day
+- url: https://www.tiktok.com/@noahbsimmons/video/7596518002615422221?_r=1&_t=ZP-957ZLkoYEzH&sp_source=7623155242376955400
+- author: arsenije
+- date: 2026-03-30T20:57:53.821Z
+- image: 
+- description: 
+
 ## When URLs go IRL: AKA The only way I&#x27;m letting my kid near YouTube - Guy Dupont
 - url: https://guydupont.leaflet.pub/3mfimqfm3a22x
 - author: arsenije
@@ -75,7 +82,7 @@
 - image:
 - description: Why modern websites have become bloated and slow, and what we can do about it.
 
-## Calm Technology Ã¢ÂÂ Principles and Patterns
+## Calm Technology ÃÂ¢ÃÂÃÂ Principles and Patterns
 - url: https://calmtech.com
 - author: mika
 - date: 2026-03-16T18:30:00Z
