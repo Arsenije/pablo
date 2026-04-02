@@ -1,3 +1,10 @@
+## Start Here
+- url: https://tantaman.com/start-here.html
+- author: arsenije
+- date: 2026-04-02T13:25:21.464Z
+- image: https://tantaman.com/img/avatar-icon.png
+- description: Understanding is liberation, but most people choose comfortable ignorance instead
+
 ## https://x.com/paul_conyngham/status/2036940410363535823
 - url: https://x.com/paul_conyngham/status/2036940410363535823
 - author: arsenije
@@ -89,7 +96,7 @@
 - image:
 - description: Why modern websites have become bloated and slow, and what we can do about it.
 
-## Calm Technology ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Principles and Patterns
+## Calm Technology ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Principles and Patterns
 - url: https://calmtech.com
 - author: mika
 - date: 2026-03-16T18:30:00Z
