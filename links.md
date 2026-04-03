@@ -1,3 +1,10 @@
+## The Whimsical Investor - fi-le.net
+- url: https://fi-le.net/stonks/
+- author: arsenije
+- date: 2026-04-03T10:47:14.723Z
+- image: https://fi-le.net/stonks/schwalbchen.png
+- description: Not many companies around today are both small and publicly traded, as the proportion of private enterprises continues to rise. Not many, indeed, are still brave enough to sail the rough seas of public scrutiny with their tiny little legal vessel, and have managed not to capsize despite everyone on board wishing they had jumped ship before that fateful IPO day. Here, I want to celebrate those businesses, by chronicling the quirkier ones in an internet-friendly list. To find, ultimately, the very silliest of them all....
+
 ## A Taxonomy of Tools
 - url: https://clementvalla.com/tooling/
 - author: arsenije
@@ -103,7 +110,7 @@
 - image:
 - description: Why modern websites have become bloated and slow, and what we can do about it.
 
-## Calm Technology ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Principles and Patterns
+## Calm Technology ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Principles and Patterns
 - url: https://calmtech.com
 - author: mika
 - date: 2026-03-16T18:30:00Z
