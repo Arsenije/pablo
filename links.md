@@ -1,3 +1,10 @@
+## A Taxonomy of Tools
+- url: https://clementvalla.com/tooling/
+- author: arsenije
+- date: 2026-04-03T06:30:20.048Z
+- image: 
+- description: 
+
 ## Start Here
 - url: https://tantaman.com/start-here.html
 - author: arsenije
@@ -96,7 +103,7 @@
 - image:
 - description: Why modern websites have become bloated and slow, and what we can do about it.
 
-## Calm Technology ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Principles and Patterns
+## Calm Technology ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Principles and Patterns
 - url: https://calmtech.com
 - author: mika
 - date: 2026-03-16T18:30:00Z
